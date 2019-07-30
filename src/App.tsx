@@ -1,19 +1,22 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import AppRoute from './components/routes/Routes';
+import React, { useContext } from "react";
+import { StyleSheet, View } from "react-native";
+import AppRoute from "./components/routes/Routes";
+import AppState from "./context/appState";
 
-export default class App extends React.Component {
-  render() {
+const App = () => {
     return (
-      <View style={styles.container}>
-        <AppRoute />
-      </View>
+        <AppState>
+            <View style={styles.container}>
+                <AppRoute />
+            </View>
+        </AppState>
     );
-  }
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  }
+    container: {
+        flex: 1
+    }
 });

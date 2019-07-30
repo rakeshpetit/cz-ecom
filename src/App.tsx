@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { StyleSheet, View } from "react-native";
 import AppRoute from "./components/routes/Routes";
 import AppState from "./context/appState";

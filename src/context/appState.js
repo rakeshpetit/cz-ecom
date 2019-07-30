@@ -35,8 +35,7 @@ const AppState = props => {
             const item = {
                 name: Faker.commerce.productName(),
                 price: Faker.commerce.price(),
-                product: Faker.commerce.productName(),
-                photo: "https://picsum.photos/id/640/200/200"
+                photo: `https://picsum.photos/id/${i}/200/300`
             };
             data.push(item);
         }

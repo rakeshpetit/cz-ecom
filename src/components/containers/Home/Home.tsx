@@ -3,7 +3,7 @@ import { StyleSheet, SafeAreaView, View } from "react-native";
 import AppContext from "../../../context/appContext";
 import * as Screens from "../Items";
 
-const Home = () => {
+const Home = (props) => {
     const appContext = useContext(AppContext);
     const { getRandomItems } = appContext;
     useEffect(() => {
@@ -13,7 +13,7 @@ const Home = () => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flex: 8 }}>
-                <Screens.Items />
+                <Screens.Items {...props}/>
             </View>
             <View style={{ flex: 1 }}>
                 <Screens.Buttons />

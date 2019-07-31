@@ -33,6 +33,7 @@ const AppState = props => {
         let data = [];
         for (let i = 0; i < 10; i++) {
             const item = {
+                id: i,
                 name: Faker.commerce.productName(),
                 price: Faker.commerce.price(),
                 photo: `https://picsum.photos/id/${i}/200/300`

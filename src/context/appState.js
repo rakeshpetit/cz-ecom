@@ -12,11 +12,12 @@ import {
     GET_WISH_LIST_ITEMS,
     CLEAR_WISH_LIST,
     CLEAR_CART,
-    SET_LOADING
+    SET_LOADING,
+    StateType
 } from "./types.js";
 
 const AppState = props => {
-    const initialState = {
+    const initialState: StateType = {
         items: [],
         cart: [],
         wishList: [],

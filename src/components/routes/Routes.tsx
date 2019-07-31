@@ -6,7 +6,7 @@ import Item from "../containers/Items/Item";
 
 const ItemStackNavigator = createStackNavigator(
     {
-        ItemScreen: {
+        ItemScreen: {   
             screen: Item,
             navigationOptions: ({ navigation }) => {
                 return {

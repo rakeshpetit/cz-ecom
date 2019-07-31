@@ -1,11 +1,11 @@
 import React from 'react'
-import { Text, View, Button } from "react-native";
+import { View, Button } from "react-native";
 const Buttons = () => {
     return (
         <View>
             <Button
                 onPress={() => {
-                    
+
                     }
                 }
                 title="Cart"

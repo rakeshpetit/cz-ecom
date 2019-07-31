@@ -2,9 +2,14 @@ import React, { useEffect, useContext } from "react";
 import { StyleSheet, SafeAreaView, View } from "react-native";
 import AppContext from "../../../context/appContext";
 import * as Screens from "../Items";
+import { StateType } from '../../../context/types'
 
-const Home = (props) => {
-    const appContext = useContext(AppContext);
+type PropType = {
+  navigationProps: any
+}
+
+const Home = (props: PropType) => {
+    const appContext: StateType = useContext(AppContext);
     const { getRandomItems } = appContext;
     useEffect(() => {
         getRandomItems();

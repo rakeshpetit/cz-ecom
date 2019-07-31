@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
 import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 import AppContext from "../../../context/appContext";
+import { StateType, ItemType } from '../../../context/types'
+type PropType = {
+  navigationProps: any
+}
 
-const Items = (props) => {
-    const appContext = useContext(AppContext);
+const Items = (props: PropType) => {
+    const appContext: StateType = useContext(AppContext);
     console.log(appContext.items)
     // console.log(appContext.items ? appContext.items : null);
 

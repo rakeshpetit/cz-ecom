@@ -5,12 +5,12 @@ import * as Screens from "../Items";
 import { StateType } from '../../../context/types'
 
 type PropType = {
-  navigationProps: any
+  navigation: any
 }
 
 const Home = (props: PropType) => {
     const appContext: StateType = useContext(AppContext);
-    const { getRandomItems } = appContext;
+    const { getRandomItems, items } = appContext;
     useEffect(() => {
         getRandomItems();
     }, []);
@@ -18,7 +18,7 @@ const Home = (props: PropType) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flex: 8 }}>
-                <Screens.Items {...props}/>
+                <Screens.Items items={items} {...props}/>
             </View>
             <View style={{ flex: 1 }}>
                 <Screens.Buttons />
@@ -30,8 +30,6 @@ const Home = (props: PropType) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-        justifyContent: "space-around",
         backgroundColor: "white",
         width: "100%"
     },

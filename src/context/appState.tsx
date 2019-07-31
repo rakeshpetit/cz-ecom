@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import Faker from "faker";
+import * as faker from 'faker';
 import AppContext from "./appContext";
 import AppReducer from "./appReducer";
 import {
@@ -8,35 +8,47 @@ import {
     ADD_TO_WISH_LIST,
     REMOVE_FROM_WISH_LIST,
     SET_ITEMS,
+    SET_SELECTED_ITEM,
     GET_CART_ITEMS,
     GET_WISH_LIST_ITEMS,
     CLEAR_WISH_LIST,
     CLEAR_CART,
     SET_LOADING,
-    StateType
-} from "./types.js";
+    StateType,
+    ItemType
+} from "./types";
 
-const AppState = props => {
+const AppState =( props: any) => {
     const initialState: StateType = {
         items: [],
         cart: [],
         wishList: [],
-        loading: false
+        selectedItem: null,
+        loading: false,
     };
 
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     // Add to Cart
+    const addToCart = (item: ItemType) => {
+      dispatch({ type: ADD_TO_CART, payload: item });
+    }
     // Add to Wishlist
+    const addToWishList = (item: ItemType) => {
+      dispatch({ type: ADD_TO_WISH_LIST, payload: item });
+    }
     // Get Items
+    const setSelectedItem = (i: number) => {
+      dispatch({ type: SET_SELECTED_ITEM, payload: i });
+    };
     const getRandomItems = () => {
         setLoading();
         let data = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 20; i++) {
             const item = {
                 id: i,
-                name: Faker.commerce.productName(),
-                price: Faker.commerce.price(),
+                name: faker.commerce.productName(),
+                price: faker.commerce.price(),
                 photo: `https://picsum.photos/id/${i}/200/300`
             };
             data.push(item);
@@ -55,7 +67,11 @@ const AppState = props => {
                 cart: state.cart,
                 wishList: state.wishList,
                 loading: state.loading,
+                selectedItem: state.selectedItem,
                 getRandomItems,
+                addToCart,
+                addToWishList,
+                setSelectedItem,
                 setLoading
             }}>
             {props.children}
